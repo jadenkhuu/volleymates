@@ -1,26 +1,99 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --rust: #a43832;
+  --maroon: #742c2b;
+  --tan: #b1a681;
+  --olive: #bab96e;
+  --ink: #13101a;
+  --bg: #f2f2f4;
+  --cream: #f5f0e8;
+  --muted: #7a6e62;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-rust: var(--rust);
+  --color-maroon: var(--maroon);
+  --color-tan: var(--tan);
+  --color-olive: var(--olive);
+  --color-ink: var(--ink);
+  --color-bg: var(--bg);
+  --color-cream: var(--cream);
+  --color-muted: var(--muted);
+
+  --font-display: var(--font-bebas);
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-lora);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Grainy gradient utility */
+.grainy-gradient {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    #742c2b 0%,
+    #a43832 22%,
+    #b1a681 52%,
+    #bab96e 78%,
+    #7a7a3a 100%
+  );
+}
+
+.grainy-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.14;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease both;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fade-up 0.7s ease 0.12s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.7s ease 0.24s both;
+}
+
+.animate-fade-up-delay-3 {
+  animation: fade-up 0.7s ease 0.36s both;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease both;
 }
