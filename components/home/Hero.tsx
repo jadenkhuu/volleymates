@@ -17,6 +17,15 @@ export default function Hero() {
         sizes="100vw"
       />
 
+      {/* Left-side gradient overlay for text legibility */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(245,240,232,0.88) 0%, rgba(245,240,232,0.6) 30%, rgba(245,240,232,0.15) 55%, transparent 72%)",
+        }}
+      />
+
       {/* Grain layer */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -33,12 +42,12 @@ export default function Hero() {
         <div className="max-w-[420px]">
 
           {/* Club name */}
-          <h1 className="animate-fade-up font-display leading-[0.9] text-white mb-4 text-[clamp(4.5rem,10vw,8rem)]">
+          <h1 className="animate-fade-up font-display leading-[0.9] text-ink mb-4 text-[clamp(4.5rem,10vw,8rem)]">
             VOLLEY<span className="text-rust">MATES</span>
           </h1>
 
           {/* Body — Lora italic for serif/sans contrast */}
-          <p className="animate-fade-up-delay-1 font-serif italic text-base leading-relaxed text-white/70 mb-6">
+          <p className="animate-fade-up-delay-1 font-serif italic text-base leading-relaxed text-muted mb-6">
             Open socials and fun, friendly competitions across
             Blacktown and Riverwood.
           </p>
@@ -53,7 +62,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/competitions"
-              className="border border-white/30 hover:border-white/70 text-white font-sans text-sm px-6 py-2.5 transition-colors duration-200 tracking-wide"
+              className="border border-ink/30 hover:border-ink/70 text-ink font-sans text-sm px-6 py-2.5 transition-colors duration-200 tracking-wide"
             >
               Our Competitions
             </Link>
@@ -61,10 +70,10 @@ export default function Hero() {
 
           {/* Achievements — compact, anchored to bottom of content */}
           <div className="animate-fade-up-delay-3 flex flex-wrap gap-2">
-            <span className="font-sans text-[11px] text-tan/75 border border-tan/25 px-2.5 py-1">
+            <span className="font-sans text-[11px] text-muted border border-muted/30 px-2.5 py-1">
               🥇 SVL Div 2 — 2024
             </span>
-            <span className="font-sans text-[11px] text-tan/75 border border-tan/25 px-2.5 py-1">
+            <span className="font-sans text-[11px] text-muted border border-muted/30 px-2.5 py-1">
               🥉 SVL Div 3 — 2024
             </span>
           </div>
